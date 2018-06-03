@@ -18,6 +18,7 @@ ENV PLEX_SERVERS localhost
 
 RUN \
  echo "**** install app ****" && \
+ pip install request && \
  pip install influxdb && \
  git clone --depth 1 https://github.com/barrycarey/Plex-Data-Collector-For-InfluxDB /app/plex-data-collector
 
