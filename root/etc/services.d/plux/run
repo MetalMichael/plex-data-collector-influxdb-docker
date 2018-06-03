@@ -1,0 +1,8 @@
+!/usr/bin/with-contenv bash
+
+echo "Starting Plux: Plex Data Collector."
+exec \
+	s6-setuidgid abc python3 \
+	/app/plux/run.py \
+	--config /config/config.ini
+    
