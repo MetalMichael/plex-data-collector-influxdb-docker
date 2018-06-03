@@ -23,10 +23,6 @@ RUN \
 
 # add local files
 COPY root/ /
-
-# update config with user variables
-RUN \
- python3 /app/plex-data-collector/updateConfig.py
  
 # ports and volumes
 WORKDIR /app/plex-data-collector
