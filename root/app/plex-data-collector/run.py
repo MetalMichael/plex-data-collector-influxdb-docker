@@ -34,6 +34,9 @@ def copyConfig():
         config.write(configfile)
 
 if not os.path.exists(CONFIG_FILE):
+    print("Creating new config file")
     copyConfig()
+else:
+    print("Using existing config file!")
     
 plexInfluxdbCollector.main()
