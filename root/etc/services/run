@@ -1,7 +1,0 @@
-!/usr/bin/with-contenv bash
-
-UMASK_SET=${UMASK_SET:-022}
-umask "$UMASK_SET"
-
-exec \
-	s6-setuidgid abc python3 /app/plex-data-collector/run.py --config /config/config.ini > /config/log.txt
