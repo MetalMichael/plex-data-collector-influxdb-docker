@@ -1,4 +1,4 @@
-FROM lsiobase/alpine.python:3.7
+FROM lsiobase/alpine.python3:3.7
 
 # set version label
 ARG BUILD_DATE
@@ -25,7 +25,7 @@ RUN \
 COPY root/ /
 
 RUN \
- python /app/plex-data-collector/updateConfig.py && \
+ python3 /app/plex-data-collector/updateConfig.py && \
  mv /app/plex-data-collector/config.ini /config/config.ini
  
 # ports and volumes

@@ -24,7 +24,7 @@ config.set('PLEX', 'username', pUser)
 config.set('PLEX', 'password', pPass)
 config.set('PLEX', 'servers', pServers)
 
-with open('config.ini', 'wb') as configfile:
+with open('config.ini', 'w') as configfile:
     configfile.write("#For usage see: https://github.com/barrycarey/Plex-Data-Collector-For-InfluxDB/blob/master/config.ini")
     configfile.write("\n")
     config.write(configfile)
