@@ -25,8 +25,8 @@ RUN \
 COPY root/ /
 
 RUN \
- python /app/updateConfig.py && \
- mv /app/config.ini /config/config.ini
+ python /app/plex-data-collector/updateConfig.py && \
+ mv /app/plex-data-collector/config.ini /config/config.ini
  
 # ports and volumes
 WORKDIR /app/plex-data-collector

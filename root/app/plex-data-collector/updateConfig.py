@@ -2,7 +2,7 @@ import os
 import configparser
 
 config = configparser.SafeConfigParser()
-config.read("config.ini")
+config.read(os.path.dirname(os.path.realpath(__file__)) + "/config.ini")
 
 iAddress = os.getenv("INFLUXDB_ADDRESS")
 iPort = os.getenv("INFLUXDB_PORT")
