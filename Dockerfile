@@ -18,12 +18,12 @@ ENV PLEX_SERVERS localhost
 
 RUN \
  echo "**** install app ****" && \
- git clone --depth 1 https://github.com/barrycarey/Plex-Data-Collector-For-InfluxDB /app/plex-data-collector && \
- pip install -r /app/plex-data-collector/requirements.txt
+ git clone --depth 1 https://github.com/barrycarey/Plex-Data-Collector-For-InfluxDB /app/plux && \
+ pip install -r /app/plux/requirements.txt
 
 # add local files
 COPY root/ /
  
 # ports and volumes
-WORKDIR /app/plex-data-collector
+WORKDIR /app/plux
 VOLUME /config
