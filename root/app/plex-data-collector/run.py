@@ -27,6 +27,8 @@ def copyConfig():
     config.set('PLEX', 'username', pUser)
     config.set('PLEX', 'password', pPass)
     config.set('PLEX', 'servers', pServers)
+    
+    config.set('LOGGING', 'logfile', '/config/output.log')
 
     with open(CONFIG_FILE, 'w') as configfile:
         configfile.write("#For usage see: https://github.com/barrycarey/Plex-Data-Collector-For-InfluxDB/blob/master/config.ini")
