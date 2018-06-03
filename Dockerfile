@@ -30,3 +30,4 @@ RUN \
  
 # ports and volumes
 WORKDIR /app/plex-data-collector
+VOLUME /config
