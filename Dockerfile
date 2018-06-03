@@ -6,8 +6,15 @@ ARG VERSION
 LABEL build_version="MetalMichael version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="MetalMichael"
 
-# set python to use utf-8 rather than ascii.
-ENV PYTHONIOENCODING="UTF-8"
+ENV INFLUXDB_ADDRESS localhost
+ENV INFLUXDB_PORT 8086
+ENV INFLUXDB_DATABASE plex_data
+ENV INFLUXDB_USERNAME ""
+ENV INFLUXDB_PASSWORD ""
+
+ENV PLEX_USERNAME ""
+ENV PLEX_PASSWORD ""
+ENV PLEX_SERVERS localhost
 
 RUN \
  echo "**** install app ****" && \
@@ -17,6 +24,10 @@ RUN \
 # add local files
 COPY root/ /
 
+RUN \
+ python /app/updateConfig.py && \
+ mv /app/config.ini /config/config.ini
+ 
 # ports and volumes
 WORKDIR /app/plex-data-collector
 VOLUME /config
