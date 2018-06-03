@@ -5,7 +5,7 @@ import plexInfluxdbCollector
 CONFIG_FILE = "/config/config.ini"
 
 def copyConfig():
-    config = configparser.SafeConfigParser()
+    config = configparser.RawConfigParser()
     config.read(os.path.dirname(os.path.realpath(__file__)) + "/config.ini")
 
     iAddress = os.getenv("INFLUXDB_ADDRESS")
@@ -36,5 +36,4 @@ def copyConfig():
 if not os.path.exists(CONFIG_FILE):
     copyConfig()
     
-collector = plexInfluxdbCollector(False, CONFIG_FILE)
-collector.run()
+plexInfluxdbCollector.main()
