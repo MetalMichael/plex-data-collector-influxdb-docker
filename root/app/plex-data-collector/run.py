@@ -4,12 +4,6 @@ import plexInfluxdbCollector
 
 CONFIG_FILE = "/config/config.ini"
 
-if not os.path.isFile(CONFIG_FILE):
-    copyConfig()
-    
-collector = plexInfluxdbCollector(False, CONFIG_FILE)
-collector.run()
-
 def copyConfig():
     config = configparser.SafeConfigParser()
     config.read(os.path.dirname(os.path.realpath(__file__)) + "/config.ini")
@@ -38,3 +32,9 @@ def copyConfig():
         configfile.write("#For usage see: https://github.com/barrycarey/Plex-Data-Collector-For-InfluxDB/blob/master/config.ini")
         configfile.write("\n")
         config.write(configfile)
+
+if not os.path.exists(CONFIG_FILE):
+    copyConfig()
+    
+collector = plexInfluxdbCollector(False, CONFIG_FILE)
+collector.run()
