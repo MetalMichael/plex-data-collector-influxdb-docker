@@ -4,5 +4,4 @@ UMASK_SET=${UMASK_SET:-022}
 umask "$UMASK_SET"
 
 exec \
-	s6-setuidgid abc python3 /app/plex-data-collector/plexInfluxdbCollector.py \
-	--config=/config/config.ini
+	s6-setuidgid abc python3 /app/plex-data-collector/plexInfluxdbCollector.py
